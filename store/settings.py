@@ -89,16 +89,6 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('db_name'),
-#         'USER': os.environ.get('db_user'),
-#         'PASSWORD': os.environ.get('db_password'),
-#         'HOST': os.environ.get('db_host'),
-#         'PORT': os.environ.get('db_port')
-#     }
-# }
 
 DATABASES = {
 'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
@@ -161,3 +151,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = "DENY"
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# settings.py
+STRIPE_SECRET_KEY = os.environ.get('stripe_secret_key')
+# This is for you (backend)
+
+STRIPE_PUBLISHABLE_KEY = os.environ.get('stripe_publishable_key')
+# You will give this to the frontend team
+
+STRIPE_WEBHOOK_SECRET = os.environ.get('stripe_webhook_secret', default='')
+# Webhook secret for verifying Stripe webhook events
