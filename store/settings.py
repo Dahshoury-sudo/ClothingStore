@@ -85,6 +85,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'store.wsgi.application'
 
+DATABASES = {
+'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -100,9 +103,6 @@ WSGI_APPLICATION = 'store.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}
 
 SIMPLE_JWT = {
     # Token life span
