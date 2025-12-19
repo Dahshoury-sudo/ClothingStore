@@ -91,7 +91,10 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 
 DATABASES = {
-'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+'default': dj_database_url.config(
+    engine='django.db.backends.postgresql',
+    default=os.environ.get('DATABASE_URL'),
+    )
 }
 
 
