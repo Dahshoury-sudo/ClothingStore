@@ -94,16 +94,6 @@ DATABASES = {
 'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('db_name'),
-#         'USER': os.environ.get('db_user'),
-#         'PASSWORD': os.environ.get('db_password'),
-#         'HOST': os.environ.get('db_host'),
-#         'PORT': os.environ.get('db_port')
-#     }
-# }
 
 
 SIMPLE_JWT = {
